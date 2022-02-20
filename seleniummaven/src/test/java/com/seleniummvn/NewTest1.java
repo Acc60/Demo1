@@ -25,6 +25,7 @@ public class NewTest1 {
 	  driver.findElement(By.id("userid")).sendKeys("BD3164");
 	  driver.findElement(By.id("password")).sendKeys("Sharma@60");
 	  driver.findElement(By.xpath("//*[@class='button-orange wide']")).click();
+	  System.out.println("Changes to show");
 	  driver.findElement(By.id("pin")).sendKeys("903961");
 	  driver.findElement(By.xpath("//*[@class=\'button-orange wide\']")).click();
 	 // driver.switchTo().alert().dismiss();
