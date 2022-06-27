@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class NewTest2 {
   @Test
-  public void f() {
+  public void runn() {
 System.out.println("Running Second Testng test with maven ");
 List<Integer> l1=new ArrayList<Integer>();
 l1.add(1);
