@@ -42,35 +42,45 @@ public class NewTest1 {
 	System.out.println("inside t1 method having only two integers as aarguments"+a1+a2);
 	}
 	
+	
 	public static void main (String[] ags) {
 		System.out.println("Inside main method");
 		
 		NewTest1 az=new NewTest1();
-		az.t1(23, 56);
-		az.t1("Corrspondence", 87);
+	//	az.t1(23, 56);
+	//	az.t1("Corrspondence", 87);
+	 //   az.l2();
+	
 	}
 	
 	
+	@SuppressWarnings("deprecation")
+	public void l2() throws Throwable {
 	
 	
+	 System.out.println("Running first Testng test with maven ");
+	}
 	
-	
-	
-	 // System.out.println("Running first Testng test with maven ");
-	  
-	  /*WebDriverManager.chromedriver().setup();
+/*	  WebDriverManager.chromedriver().setup();
 	  WebDriver driver=new ChromeDriver();
 	  driver.manage().window().maximize();
 	  
+	
 	  driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	  
 	  driver.get("https://kite.zerodha.com");
 	  driver.findElement(By.id("userid")).sendKeys("BD3164");
 	  driver.findElement(By.id("password")).sendKeys("Sharma@60");
+	
 	  driver.findElement(By.xpath("//*[@class='button-orange wide']")).click();
 	  System.out.println("Changes to show");
-	  driver.findElement(By.id("pin")).sendKeys("903961");
-	  driver.findElement(By.xpath("//*[@class=\'button-orange wide\']")).click();
+	
+	 // driver.findElement(By.id("pin")).sendKeys("903961");
+	
+	 // driver.findElement(By.xpath("//*[@class=\'button-orange wide\']")).click();
+	//}
+
+	
 	 // driver.switchTo().alert().dismiss();
 	 // system.out.println("Printing to showcase the pull one");
 	  //driver.close();
