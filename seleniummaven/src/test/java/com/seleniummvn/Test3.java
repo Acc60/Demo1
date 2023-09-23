@@ -1,6 +1,7 @@
 package com.seleniummvn;
 
 import org.testng.asserts.SoftAssert;
+
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,6 +30,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import seleniummaven.PageFac;
 import seleniummaven.fun;
 
 import org.openqa.selenium.remote.http.ConnectionFailedException;
@@ -35,9 +38,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import static io.restassured.RestAssured.* ;
+import org.hamcrest.Matchers.*;
+
+
 
 public class Test3 implements fun{
-	
+	WebDriver driver=null;
+	PageFac pf;
 	
 	
 	Test3(){
@@ -45,6 +53,9 @@ public class Test3 implements fun{
 			}
 	
 	Test3(String str){
+		pf= new PageFac(driver);
+		pf.search("nit");
+		
 		System.out.println("Inside artificial constructor ==" + str);
 			}
 	
@@ -53,16 +64,86 @@ public class Test3 implements fun{
 		
 		System.out.println("Inside t1 method");
 		
+		
+		@SuppressWarnings("unused")
+		abstract class pr extends Test3{
+			  
+		}
 
 	
 
 }
 	
+	@SuppressWarnings("unchecked")
+	public void getdetails() {
+		
+		
+		
+		
+		given()
+		.when()
+		.get("https://restful-booker.herokuapp.com/booking")
+		.then()
+		.statusCode(200);
+		System.out.println("Inside API Testing method");
+		
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	public void PostDetails() {
+		HashMap map=new HashMap();
+		map.put("Firstname", "Nitish");
+		map.put("lastname", "Kumar");
+		
+		given()
+		.contentType("application/json")
+		.body(map)
+		.when()
+		.post()
+		.then()
+		.statusCode(403);
+		
+		System.out.println("Inside post api method is successful");
+	}
+	
 @SuppressWarnings("deprecation")
 public static void main(String[] args) throws InterruptedException, SQLException {
+	
+	//pf=new PageFac(driver);
 	System.out.println(color);
 	Test3 t= new Test3("Nitish");
-	t.t1();
+	t.getdetails();
+	t.PostDetails();
+	
+	//API Automation Testing 
+	
+	
+	
+
+	// Database Testing Codes 
+ 	/*Connection con=DriverManager.getConnection("jdbc.localhost.thin", "root", "Example@2023");
+ 	Statement stmt= con.createStatement();
+ 	String sse="Select * from Students";
+ 	String ss1="Select FirstName from Students where StudentId=1";
+ 	String ss2="INSERT into Students Value (2,'K','N','M')";
+ 	String ss3="UPDATE Students Set StudentId=0 where FirstName='Nitish'";
+ 	String ss4="Delect * From Students";
+ 	
+ 	 ResultSet rs=  stmt.executeQuery(sse);
+ 	 while(rs.next()) {
+ 		 String ln=rs.getString("LastName");
+ 		 String fn=rs.getString("FirstName");
+ 		 System.out.println(ln);
+ 		 System.out.println(fn);
+ 	 }
+ 	 
+ 	 
+ 
+	
+	
+	//Test3 t= new Test3("Nitish");
+	//t.t1();
 	//t.Test3("Nitish");
 	
 	
@@ -74,14 +155,14 @@ public static void main(String[] args) throws InterruptedException, SQLException
 
  // Start new EDGE Browser
     
-   System.setProperty("webdriver.edge.driver", "C:\\Users\\RAHUL\\Downloads\\edgedriver_win64\\msedgedriver.exe");
+  /* System.setProperty("webdriver.edge.driver", "C:\\Users\\RAHUL\\Downloads\\edgedriver_win64\\msedgedriver.exe");
     EdgeOptions options = new EdgeOptions();
     options.addArguments("--remote-allow-origins=*");
     options.addArguments("--disable-blink-features=AutomationControlled");
       WebDriver driver = new EdgeDriver(options);
       //driver.findElement(by.)
  
-    /*  driver.manage().window().maximize();
+      driver.manage().window().maximize();
       System.out.println(" printing after maximising the Browser");
         
       
@@ -280,7 +361,7 @@ public static void main(String[] args) throws InterruptedException, SQLException
         
       
         
-        int[] ar= {1,2,3,4,5};
+      /*  int[] ar= {1,2,3,4,5};
         
         try {
         for(int i =0;i<=ar.length;i++) {
@@ -296,14 +377,14 @@ public static void main(String[] args) throws InterruptedException, SQLException
         l21.add(7);
         l21.add(8);
         
-       /* try {
+       try {
         int j=0;
         
         while(j<l21.size()) {
         	System.out.println(l21.get(j));
         }}catch (Exception e){
         	System.out.println(e);
-        }*/
+        }
         
         int n=34543;
         
@@ -327,7 +408,7 @@ public static void main(String[] args) throws InterruptedException, SQLException
         
         String s11="Nitish,is,typing";
         List<String> s12=new ArrayList<String>(Arrays.asList(s11.split(",")));
-        System.out.println(s12);
+        System.out.println(s12);*/
         
         
       
